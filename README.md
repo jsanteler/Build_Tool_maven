@@ -35,7 +35,7 @@ Wenn alles funktioniert hat, sollte am Schluss "Hello World!" stehen.
 
 Hier erstelle ich in der IDE ein neues Maven Projekt in IntelliJ.
 
-![Alt-Text](Build_Tool_Maven/../Maven_Project_erstellen.png)
+![Alt-Text](Build_tool_maven/../maven_bilder/Maven_Project_erstellen.png)
 
 Ich wähle als Test in Archetype: archetype-quickstart
 
@@ -43,13 +43,13 @@ Nun create ich das Projekt.
 
 Wie im Auftrag beschrieben füge ich von Google die Guava-Bibliothek als Dependancy.
 
-![Alt-Text](Build_Tool_Maven/../guava-biblothekt_als_dependancy.png)
+![Alt-Text](Build_tool_maven/../maven_bilder/guava-biblothekt_als_dependancy.png)
 
 Oben rechts erscheint nun ein kleines Fenster mit einem M zum aktulalisieren.
 
 Zuvor lösche ich die Zeile für die Android-Version raus und nun klicke ich auf aktualisieren.
 
-![Alt-Text](Build_Tool_Maven/../aktualisieren.png)
+![Alt-Text](Build_tool_maven/../maven_bilder/aktualisieren.png)
 
 Nach dem Aktualiseren scheint kein Fehler mehr auf.
 
@@ -67,9 +67,50 @@ Hashing: Werkzeug zum Erstellen einzigartiger Codes aus Daten.
 
 Splitter: Ein String, der durch Kommas getrennt ist und ich möchte diesen String in eine Liste von Strings aufteilen und dabei die Leerzeichen enfernen und die leeren Einträge ignorieren.
 
-![Alt-Text](Build_Tool_Maven/../SplitterBeispiel.png)
+![Alt-Text](Build_tool_maven/../maven_bilder/SplitterBeispiel.png)
 Hier wird der String aufgeteilt und die Beistriche entfernt.
 
 Hier habe ich die Wiki von Guava mir zuhilfe genommen.
 
 https://github.com/google/guava/wiki
+
+# Apache Commons
+
+Sind auch Hilfsfunktionen die nicht im Java Standart enthalten sind.
+
+https://mvnrepository.com/
+
+Auf dieser Seite habe ich mir die "dependency" geholt.
+
+Ich habe mich mit den Commons Lang auseinandergesetzt.
+
+Bietet zusätzliche Funktionen für die Java-Standartklassen, insbesondere für String-Manipulation, Zahlbehandlung...
+
+Hier ist ein Codebeispiel von mir, wie ich eimal einen String überprüfe, ob er leer ist und auch wie ich Strings verändere mit trim und mit capitalized.
+
+```
+package org.example;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class test {
+
+    public static void main(String[] args) {
+
+        // Überprüfen, ob ein String leer ist
+        boolean isEmpty = StringUtils.isEmpty("Der String ist voll befüllt mit Zeichen");
+        System.out.println("Ist der String leer? " + isEmpty);
+
+        // Leerzeichen werden vor und nach dem Test weggeschnitten
+        String trimmed = StringUtils.trim("                  Java ist auch eine Insel    ");
+        System.out.println("Nach dem Trimmen: " + trimmed);
+
+        // Der erste Buchstabe des Strings wird großgeschrieben
+        String capitalized = StringUtils.capitalize("hELLO WORLD");
+        System.out.println("Kapitalisiert: " + capitalized);
+    }
+
+}
+
+
+```
